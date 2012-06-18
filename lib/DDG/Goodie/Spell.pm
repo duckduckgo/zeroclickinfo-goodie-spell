@@ -1,4 +1,5 @@
 package DDG::Goodie::Spell;
+# ABSTRACT: Spellcheck and return spelling suggestions
 
 use DDG::Goodie;
 use Text::Aspell;
