@@ -12,9 +12,9 @@ ddg_goodie_test(
 	[qw(
 		DDG::Goodie::Spell
 	)],
-	'spell foo' => test_zci("'Foo' appears to be spelled right!  Suggestions: foo, FPO, food, fool, foot, fop", html => "'Foo' appears to be spelled right!<br/>Suggestions: foo, FPO, food, fool, foot, fop"),
-	'how do I spell foo' => test_zci("'Foo' appears to be spelled right!  Suggestions: foo, FPO, food, fool, foot, fop", html => "'Foo' appears to be spelled right!<br/>Suggestions: foo, FPO, food, fool, foot, fop"),
-	'spellcheck hllo' => test_zci("'Hllo' does not appear to be spelled correctly.  Suggestions: hello, halo, halloo, hallow, hollow, Hall", html => "'Hllo' does not appear to be spelled correctly.<br/>Suggestions: hello, halo, halloo, hallow, hollow, Hall"),
+	'spell foo' => test_zci(qr/'Foo' appears to be spelled right!  Suggestions: .+/, html => qr|'Foo' appears to be spelled right!<br/>Suggestions: .+|),
+	'how do I spell foo' => test_zci(qr/'Foo' appears to be spelled right!  Suggestions: .+/, html => qr|'Foo' appears to be spelled right!<br/>Suggestions: .+|),
+	'spellcheck hllo' => test_zci(qr/'Hllo' does not appear to be spelled correctly.  Suggestions: .+/, html => qr|'Hllo' does not appear to be spelled correctly.<br/>Suggestions: .+|),
 );
 
 done_testing;
