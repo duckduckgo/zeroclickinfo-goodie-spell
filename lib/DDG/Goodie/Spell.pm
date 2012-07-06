@@ -18,10 +18,11 @@ attribution
 ;
 
 handle remainder => sub {
-    return unless /^[\w']+$/; # only accept letters and ' (aspell handles contractions)
+    return unless /^[a-z']+$/; # only accept letters and ' (aspell handles contractions)
     my $correct = $speller->check($_) ? "'\u$_' appears to be spelled right!" : "'\u$_' does not appear to be spelled correctly.";
     my @suggestions = $speller->suggest($_);
-    my $sug = @suggestions ? "Suggestions: " . join(', ', @suggestions[0..5]) : "No suggestions.";
+    my $end = $#suggestions >= 5 ? 5 : $#suggestions;
+    my $sug = @suggestions ? "Suggestions: " . join(', ', @suggestions[0..$end]) : "No suggestions.";
     return "$correct  $sug", html => "$correct<br/>$sug";
 };
 
