@@ -28,7 +28,7 @@ handle remainder => sub {
     my $sug = @suggestions ? "Suggestions: " . join(', ', @suggestions[0..$end]) : "No suggestions.";
     my $sug_html = $sug;
     $sug_html =~ s{Suggestions: }{<i>Suggestions: </i>};
-    return "$correct  $sug", html => "$correct_html<br/>$sug_html";
+    return "$correct  $sug.", html => "$correct_html<br/>$sug_html.";
 };
 
 1;
