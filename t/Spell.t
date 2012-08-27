@@ -12,8 +12,8 @@ ddg_goodie_test(
 	[qw(
 		DDG::Goodie::Spell
 	)],
-	'spell foo' => test_zci(qr/'Foo' appears to be spelled right!  Suggestions: .+/, html => qr|<b>Foo</b> appears to be spelled right!<br/><i>Suggestions: </i>.+|),
-	'how do I spell foo' => test_zci(qr/'Foo' appears to be spelled right!  Suggestions: .+/, html => qr|<b>Foo</b> appears to be spelled right!<br/><i>Suggestions: </i>.+|),
+	'spell foo' => test_zci(qr/'Foo' appears to be spelled correctly!  Suggestions: .+/, html => qr|<b>Foo</b> appears to be spelled correctly!<br/><i>Suggestions: </i>.+|),
+	'how do I spell foo' => test_zci(qr/'Foo' appears to be spelled correctly!  Suggestions: .+/, html => qr|<b>Foo</b> appears to be spelled correctly!<br/><i>Suggestions: </i>.+|),
 	'spellcheck hllo' => test_zci(qr/'Hllo' does not appear to be spelled correctly.  Suggestions: .+/, html => qr|<b>Hllo</b> does not appear to be spelled correctly.<br/><i>Suggestions: </i>.+|),
 );
 
