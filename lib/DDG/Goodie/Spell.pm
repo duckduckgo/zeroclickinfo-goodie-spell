@@ -8,6 +8,13 @@ triggers start => "spell", "how to spell", "how do i spell", "spellcheck";
 
 zci is_cached => 1;
 
+primary_example_queries 'spell hypocrit';
+description 'find spelling suggestions for a given word';
+name 'Spell';
+code_url 'https://github.com/duckduckgo/ddg-goodie-spell/blob/master/lib/DDG/Goodie/Spell.pm';
+category 'language';
+topics 'words_and_games';
+
 my $speller = Text::Aspell->new;
 $speller->set_option('lang','en_US'); 
 $speller->set_option('sug-mode','fast');
