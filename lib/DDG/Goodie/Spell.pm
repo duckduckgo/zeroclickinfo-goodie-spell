@@ -3,6 +3,7 @@ package DDG::Goodie::Spell;
 
 use DDG::Goodie;
 use Text::Aspell;
+use URI::Encode 'uri_encode';
 
 triggers start => "spell", "how to spell", "how do i spell", "spellcheck";
 
@@ -33,8 +34,10 @@ handle remainder => sub {
     my @suggestions = $speller->suggest($_);
     my $end = $#suggestions >= 5 ? 5 : $#suggestions;
     my $sug = @suggestions ? "Suggestions: " . join(', ', @suggestions[0..$end]) : "No suggestions.";
-    my $sug_html = $sug;
-    $sug_html =~ s{Suggestions: }{<i>Suggestions: </i>};
+    my $sug_html = @suggestions ? "<i>Suggestions:</i> " : "No suggestions.";
+
+    $sug_html .= "<a href='/?q=define+".uri_encode($_).">$_ </a>" for @suggestions[0..$end];
+
     return "$correct  $sug.", html => "$correct_html<br/>$sug_html.";
 };
 
