@@ -36,7 +36,7 @@ handle remainder => sub {
     my $sug = @suggestions ? "Suggestions: " . join(', ', @suggestions[0..$end]) : "No suggestions.";
     my $sug_html = @suggestions ? "<i>Suggestions:</i> " : "No suggestions.";
 
-    $sug_html .= "<a href='/?q=define+".uri_encode($_).">$_ </a>" for @suggestions[0..$end];
+    $sug_html .= "<a href='/?q=define+".uri_encode($_)."'>$_</a> " for @suggestions[0..$end];
 
     return "$correct  $sug.", html => "$correct_html<br/>$sug_html.";
 };
