@@ -26,7 +26,7 @@ attribution
 ;
 
 handle remainder => sub {
-    return unless /^[a-z']+$/; # only accept letters and ' (aspell handles contractions)
+    return unless /^[a-z']+$/i; # only accept letters and ' (aspell handles contractions)
     my $correct = $speller->check($_) ? "'\u$_' appears to be spelled correctly!" : "'\u$_' does not appear to be spelled correctly.";
     my $correct_html = $correct;
     $correct_html =~ s{^'(.+?)'}{<b>$1</b>};
