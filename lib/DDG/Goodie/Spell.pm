@@ -5,7 +5,7 @@ use DDG::Goodie;
 use Text::Aspell;
 use URI::Encode 'uri_encode';
 
-triggers start => "spell", "how to spell", "how do i spell", "spellcheck";
+triggers start => "spell", "how to spell", "how do i spell", "spellcheck", "spelling";
 
 zci is_cached => 1;
 
